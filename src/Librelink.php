@@ -12,13 +12,14 @@ class Librelink {
     public function __construct()
     {
 
-        $url = config('librenms.server');
+        $url = config('librelink.server');
         if (substr($url,-1) != '/') {
             $url = $url.'/';
         }
 
         $this->serviceURL = $url."api/v0/";   // must end with a forward-slash
-        $this->token = config('librenms.token');
+        $this->token = config('librelink.token');
+
     }
 
     public function list_Devices() {

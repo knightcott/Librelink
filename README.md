@@ -29,12 +29,12 @@ LIBRENMS_API_TOKEN="LibreNMS api token"
 
 ## Usage
 
-`use Knightcott\Librelink\Librelink;`
+```use Knightcott\Librelink\Librelink;
 
 $link = New Librelink;
 
 // Get all devices
-$devices = $link->get_devices();
+$devices = $link->list_devices();
 
 // Get a device
 $device = $link->get_device(1);
@@ -42,5 +42,4 @@ $device = $link->get_device('myserver.example.com');
 
 // Delete a device
 $device = $link->del_device(1);
-
 ```
