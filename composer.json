@@ -1,0 +1,12 @@
+{
+    "name": "knightcott/librelink",
+    "description": "Connector for linking to a LibreNMS API endpoint",
+    "type": "library",
+    "license": "GPL3",
+    "autoload": {
+        "psr-4": {
+            "Knightcott\\Librelink\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
