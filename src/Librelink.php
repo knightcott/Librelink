@@ -82,7 +82,7 @@ class Librelink {
 
     public function add_service_for_host($host, $service) {
         
-        return $this->sendPostRequest('services/$host', $service);
+        return $this->sendPostRequest("services/$host", $service);
 
     }
 
