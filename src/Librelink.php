@@ -52,6 +52,46 @@ class Librelink {
 
     }
 
+    public function list_services($type = null) {
+
+        if (is_null($type)) {
+
+            return $this->sendGetRequest('services/');
+
+        } else {
+
+            return $this->sendGetRequest("services/?type=$type");
+
+        }
+        
+    }
+
+    public function get_service_for_host($host, $type = null) {
+
+        if (is_null($type)) {
+
+            return $this->sendGetRequest("services/$host");
+
+        } else {
+
+            return $this->sendGetRequest("services/$host?type=$type");
+
+        }
+        
+    }
+
+    public function add_service_for_host($host, $service) {
+        
+        return $this->sendPostRequest('services/$host', $service);
+
+    }
+
+    public function delete_service_from_host($service) {
+
+        return $this->sendDeleteRequest("services/$service");
+        
+    }
+
     private function sendGetRequest($url_path) {
         
         $response = Http::withHeaders([
@@ -84,7 +124,7 @@ class Librelink {
         
         $response = Http::withHeaders([
             'X-Auth-Token' => $this->token
-        ])->patch($this->serviceURL.$url_path,$field);
+        ])->patch($this->serviceURL.$url_path,$fields);
 
         if ($response->successful()){
             return json_decode($response->body());
